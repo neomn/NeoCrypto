@@ -1,3 +1,3 @@
-from neocrypto import GenerateKeyPairs
+from neocrypto.GeneratePrivateKey import PrivateKey
 
-print(GenerateKeyPairs.PrivateKey('/run/media/neo/Neo/Projects/Programing/other/NeoCrypto/private.text',499))
+print(PrivateKey('/run/media/neo/Neo/Projects/Programing/other/NeoCrypto/private.text',499))

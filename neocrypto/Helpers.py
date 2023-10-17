@@ -25,9 +25,9 @@ def generate_error(max_error_size: int):
     return error
 
 
-def select_random_equation(public_key: PublicKey):
-    index = return_random_int(public_key.equation_count, False)
-    return public_key.standard_equations_structured[index]
+# def select_random_equation(public_key: PublicKey):
+#     index = return_random_int(public_key.equation_count, False)
+#     return public_key.standard_equations_structured[index]
 
 
 def return_random_int(mod_value: int, non_zero: bool):
@@ -51,11 +51,11 @@ def is_prime(number):
     return True
 
 
-def create_public_key(mod_value: int):
-    key_identifier_input = input("Enter a Key identifier string: ")
-    public_key_path = preflight_checks_create_key(key_identifier_input)
-    public_key = PublicKey(public_key_path, mod_value)
-    return public_key
+# def create_public_key(mod_value: int):
+#     key_identifier_input = input("Enter a Key identifier string: ")
+#     public_key_path = preflight_checks_create_key(key_identifier_input)
+#     public_key = PublicKey(public_key_path, mod_value)
+#     return public_key
 
 
 def preflight_checks_create_key(proposed_path: str):
@@ -66,14 +66,14 @@ def preflight_checks_create_key(proposed_path: str):
     return full_path_public_key
 
 
-def load_key(key_type: str):
-    key_identifier_input = input("Enter a Key identifier string: ")
-    key_path = preflight_checks_load_key(key_identifier_input, key_type)
-    mod_value = derive_mod_from_key(key_type, key_path)
-    if key_type == "private":
-        return PrivateKey(key_path, mod_value)
-    else:
-        return PublicKey(key_path, mod_value)
+# def load_key(key_type: str):
+#     key_identifier_input = input("Enter a Key identifier string: ")
+#     key_path = preflight_checks_load_key(key_identifier_input, key_type)
+#     mod_value = derive_mod_from_key(key_type, key_path)
+#     if key_type == "private":
+#         return PrivateKey(key_path, mod_value)
+#     else:
+#         return PublicKey(key_path, mod_value)
 
 
 def derive_mod_from_key(key_type: str, path: str):
