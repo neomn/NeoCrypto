@@ -1,5 +1,5 @@
 import os
-from StandardEquation import StandardEquation
+from .StandardEquation import StandardEquation
 from . import Helpers
 
 mod_value = 499
