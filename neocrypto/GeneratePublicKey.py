@@ -1,37 +1,23 @@
-import os
-from .Helpers import load_from_file, save_to_file, max_error, generate_error, return_random_int
+from .Helpers import  max_error, generate_error, return_random_int
 from .StandardEquation import StandardEquation
-from .GeneratePrivateKey import PrivateKey
 
-mod_value = 499
 
-class PublicKey:
-    def __init__(self, file_path, mod_value):
-        assert isinstance(file_path, str)
-        assert isinstance(mod_value, int)
-        self.file_path = file_path
-        self.mod_value = mod_value
-        self.standard_equations_stringified = []
-        self.standard_equations_structured = []
-        self.equation_count = mod_value // 2
-        if os.path.isfile(self.file_path):
-            self.standard_equations_stringified = eval(load_from_file(self.file_path))
-            for _, equation in enumerate(self.standard_equations_stringified):
-                coefficient_list = list(equation[0])
-                constant = equation[1]
-                self.standard_equations_structured.append(StandardEquation(coefficient_list, constant))
-        else:
-            private_key = PrivateKey(self.file_path.replace("public", "private"), self.mod_value)
-            for _ in range(self.equation_count):
-                coefficients = []
-                constant = 0
-                for coefficient_index in range(self.mod_value):
-                    random_coefficient = return_random_int(self.mod_value, True)
-                    coefficients.append(random_coefficient)
-                    product = (coefficients[coefficient_index] * private_key.vectors[coefficient_index])
-                    constant = constant + product
-                constant = constant + generate_error(max_error(mod_value))
-                new_standard_equation = StandardEquation(coefficients, constant)
-                self.standard_equations_structured.append(new_standard_equation)
-                self.standard_equations_stringified.append(new_standard_equation.stringify())
-            save_to_file(self.standard_equations_stringified, self.file_path)
+def GeneratePublicKey(private_key: list, mod_value: int):
+    standard_equations_stringified = []
+    standard_equations_structured = []
+    equation_count = mod_value // 2
+
+    private_key = private_key
+    for _ in range(equation_count):
+        coefficients = []
+        constant = 0
+        for coefficient_index in range(mod_value):
+            random_coefficient = return_random_int(mod_value, True)
+            coefficients.append(random_coefficient)
+            product = (coefficients[coefficient_index] * private_key[coefficient_index])
+            constant = constant + product
+        constant = constant + generate_error(max_error(mod_value))
+        new_standard_equation = StandardEquation(coefficients, constant)
+        standard_equations_structured.append(new_standard_equation)
+        standard_equations_stringified.append(new_standard_equation.stringify())
+    return standard_equations_stringified

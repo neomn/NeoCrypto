@@ -5,4 +5,4 @@ def GeneratePrivateKey(mod_value: int):
     vectors = []
     for _ in range(mod_value):
             vectors.append(return_random_int(mod_value, True))
-    return str(vectors)
+    return vectors
