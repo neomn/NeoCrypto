@@ -1,4 +1,4 @@
-from .Helpers import  max_error, generate_error, return_random_int
+from .Helpers          import  max_error, generate_error, return_random_int
 from .StandardEquation import StandardEquation
 
 
