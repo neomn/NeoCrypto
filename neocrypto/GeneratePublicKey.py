@@ -3,11 +3,9 @@ from .StandardEquation import StandardEquation
 
 
 def GeneratePublicKey(private_key: list, mod_value: int):
-    standard_equations_stringified = []
-    standard_equations_structured = []
+    standard_equations_stringified,  standard_equations_structured = [], []
     equation_count = mod_value // 2
-
-    private_key = private_key
+    
     for _ in range(equation_count):
         coefficients = []
         constant = 0
