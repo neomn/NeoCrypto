@@ -36,10 +36,7 @@ def return_random_int(mod_value: int, non_zero: bool):
     for digit in str(nanoseconds):
         if int(digit) != 0:
             factor = (factor + int(digit)) * int(digit)
-            print(f'factor is {factor}')
-    print(f'modding {factor}')
     factor = factor % mod_value
-
     if factor == 0 and non_zero:
         return 1
     return factor

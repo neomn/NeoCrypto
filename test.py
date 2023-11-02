@@ -1,4 +1,4 @@
 from neocrypto.neocrypto import NeoCrypto
 
-print(NeoCrypto(mod_val = 17).public_key)
+print(NeoCrypto(mod_val = 23).public_key)
 
