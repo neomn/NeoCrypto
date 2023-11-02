@@ -9,10 +9,10 @@ def GeneratePublicKey(private_key: list, mod_value: int):
     for _ in range(equation_count):
         coefficients = []
         constant = 0
-        for coefficient_index in range(mod_value):
+        for i in range(mod_value):
             random_coefficient = return_random_int(mod_value, True)
             coefficients.append(random_coefficient)
-            product = (coefficients[coefficient_index] * private_key[coefficient_index])
+            product = (coefficients[i] * private_key[i])
             constant = constant + product
         constant = constant + generate_error(max_error(mod_value))
         new_standard_equation = StandardEquation(coefficients, constant)
