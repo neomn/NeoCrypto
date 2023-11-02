@@ -12,9 +12,9 @@ def GeneratePublicKey(private_key: list, mod_value: int):
         for i in range(mod_value):
             random_coefficient = return_random_int(mod_value, True)
             coefficients.append(random_coefficient)
-            product = (coefficients[i] * private_key[i])
-            constant = constant + product
-        constant = constant + generate_error(max_error(mod_value))
+            product = coefficients[i] * private_key[i]
+            constant += product
+        constant += generate_error(max_error(mod_value))
         new_standard_equation = StandardEquation(coefficients, constant)
         standard_equations_structured.append(new_standard_equation)
         standard_equations_stringified.append(new_standard_equation.stringify())
