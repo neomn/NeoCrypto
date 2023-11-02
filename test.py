@@ -1,4 +1,9 @@
 from neocrypto.neocrypto import NeoCrypto
 
-print(NeoCrypto(mod_val = 23).public_key)
+nc = NeoCrypto(23)
+private = nc.generate_private_key()
+public = nc.generate_public_key(private)
+
+print(private)
+print(public)
 
