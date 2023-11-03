@@ -1,5 +1,4 @@
-import math
-
+from .Helpers import error_tolerance
 
 class StandardEquation:
     def __init__(self, coefficients, constant):
@@ -47,14 +46,3 @@ class StandardEquation:
     def stringify(self):
         return [self.coefficients, self.constant]
 
-
-def error_tolerance(mod_value: int):
-    return (mod_value // 4) - 1
-
-
-def max_error(mod_value: int):
-    return math.floor(mod_value * 0.05)
-
-
-def encapsulation_component_limit(mod_value: int):
-    return error_tolerance(mod_value) // max_error(mod_value)
