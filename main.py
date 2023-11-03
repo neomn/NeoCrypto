@@ -1,9 +1,7 @@
 from neocrypto.neocrypto import NeoCrypto
 
 nc = NeoCrypto(23)
-private = nc.generate_private_key()
-public = nc.generate_public_key(private)
+print(f'private key: {nc.key}', "\n")
+print(f'public key: {nc.pub_key}, "\n"')
 
-print(private)
-print(public)
-
+print(f"encrypt message (hi) ==> {nc.encrypt('hi')}", "\n")
