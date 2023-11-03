@@ -126,5 +126,14 @@ def preflight_checks_encrypt(proposed_path: str):
         raise Exception("The proposed action would overwrite an existing file.")
     return full_path_encrypted
 
+
+def error_tolerance(mod_value: int):
+    return (mod_value // 4) - 1
+
+
 def max_error(mod_value: int):
     return math.floor(mod_value * 0.05)
+
+
+def encapsulation_component_limit(mod_value: int):
+    return error_tolerance(mod_value) // max_error(mod_value)
