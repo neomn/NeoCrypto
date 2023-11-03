@@ -18,7 +18,13 @@ class PrivateKey:
         return key
     
 
-
+    def read_key_from_string(self, string: str):
+        key = eval(string)
+        assert isinstance(key, list)
+        for num in key:
+            assert isinstance(num, int)
+        self.key = key
+        return key
 
     
 
