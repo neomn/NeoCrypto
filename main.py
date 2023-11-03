@@ -1,5 +1,9 @@
-from neocrypto.GeneratePrivateKey import PrivateKey
-from neocrypto.GeneratePublicKey import PublicKey
+from neocrypto.neocrypto import NeoCrypto
 
-# print(PrivateKey('/run/media/neo/Neo/Projects/Programing/other/NeoCrypto/private.txt',499))
-print(PublicKey('/run/media/neo/Neo/Projects/Programing/other/NeoCrypto/public.txt',499))
+nc = NeoCrypto(23)
+private = nc.generate_private_key()
+public = nc.generate_public_key(private)
+
+print(private)
+print(public)
+
