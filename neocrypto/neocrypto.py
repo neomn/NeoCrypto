@@ -1,22 +1,18 @@
-from .GeneratePrivateKey import GeneratePrivateKey
-from .GeneratePublicKey  import GeneratePublicKey
+from .PrivateKey       import PrivateKey
+from .PublicKey        import PublicKey
+from .Encrypt          import Encrypt
 
 
-class NeoCrypto():
-    def __init__(self, mod_val: int = 499):
-        self.mod_value = mod_val
+class NeoCrypto:
+    
+    def __init__(self, mod_value: int = 499):
+        self.mod_value = mod_value
+        self.private_key = PrivateKey(mod_value=mod_value)
+        self.public_key = PublicKey(self.private_key, self.mod_value)
 
     
-    def generate_private_key(self):
-        return GeneratePrivateKey(self.mod_value)
-    
-    
-    def generate_public_key(self, private_key):
-        return GeneratePublicKey(private_key, self.mod_value)
-
-    
-    def encrypt(self, message: str, public_key: str):
-        return ''
+    def encrypt(self, message: str):
+        return Encrypt(message=message, public_key=self.public_key)
 
         
     def decrypt(self, encrypted_message: str, private_key: str):
