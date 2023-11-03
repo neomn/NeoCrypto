@@ -34,7 +34,18 @@ class PrivateKey:
         return self.read_key_from_string(content)
          
     
-
+    def save_to_file(self, file_path: str):
+        try:
+            with open(file_path, 'w') as file:
+                file.write(str(self.key))
+            return True
+        except IOError as e:
+            if e.errno == errno.EACCES:
+                print('Permission denied') 
+            elif e.errno == errno.ENOSPC:
+                print('No space left on device')
+        except Exception as e:
+            print('Unknown exception:', e)
 
 
 
