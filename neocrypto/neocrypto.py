@@ -1,7 +1,7 @@
 from .PrivateKey import PrivateKey
 from .PublicKey  import PublicKey
-from .Encrypt    import Encrypt
-from .Decrypt    import Decrypt
+from .Encrypt    import encrypt
+from .Decrypt    import decrypt
 
 
 class NeoCrypto:
@@ -15,8 +15,8 @@ class NeoCrypto:
     
 
     def encrypt(self, message: str):
-        return Encrypt().encrypt(message=message, public_key=self.public_key)
+        return encrypt(message=message, public_key=self.public_key)
 
         
-    def decrypt(self, encrypted_message: str, private_key: str):
-        return ''
+    def decrypt(self, encrypted_message: list):
+        return decrypt(encrypted_message, self.private_key)
