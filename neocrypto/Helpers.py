@@ -25,9 +25,10 @@ def generate_error(max_error_size: int):
     return error
 
 
-# def select_random_equation(public_key: PublicKey):
-#     index = return_random_int(public_key.equation_count, False)
-#     return public_key.standard_equations_structured[index]
+def select_random_equation(public_key):
+    equation_count = public_key.mod_value // 2
+    index = return_random_int(equation_count, False)
+    return public_key.key[index]
 
 
 def return_random_int(mod_value: int, non_zero: bool):
