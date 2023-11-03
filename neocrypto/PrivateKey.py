@@ -27,7 +27,11 @@ class PrivateKey:
         return key
 
     
-
+    def read_key_from_file(self, file_path: str):
+        assert isfile(file_path)
+        with open(file_path, 'r') as file:
+            content = file.read()
+        return self.read_key_from_string(content)
          
     
 
