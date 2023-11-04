@@ -1,19 +1,18 @@
-import math
-import os
+import math, os, errno
 from time import perf_counter_ns
 
 
 
-def load_from_file(file_path):
-    with open(file_path, 'r') as file:
-        content = file.read()
-    return content
+def read_from_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = str(file.read())
+        return content
+    except Exception as e:
+        print(f'read from file failed, {e}')
 
 
-def save_to_file(item_list, file_path):
-    with open(file_path, 'w') as file:
-        file.write(str(item_list))
-    return file_path
+
 
 
 def generate_error(max_error_size: int):
@@ -67,19 +66,19 @@ def preflight_checks_create_key(proposed_path: str):
     return full_path_public_key
 
 
-# def load_key(key_type: str):
-#     key_identifier_input = input("Enter a Key identifier string: ")
-#     key_path = preflight_checks_load_key(key_identifier_input, key_type)
-#     mod_value = derive_mod_from_key(key_type, key_path)
-#     if key_type == "private":
-#         return PrivateKey(key_path, mod_value)
-#     else:
-#         return PublicKey(key_path, mod_value)
+def load_key(key_type: str):
+    key_identifier_input = input("Enter a Key identifier string: ")
+    key_path = preflight_checks_load_key(key_identifier_input, key_type)
+    mod_value = derive_mod_from_key(key_type, key_path)
+    if key_type == "private":
+        return PrivateKey(key_path, mod_value)
+    else:
+        return PublicKey(key_path, mod_value)
 
 
 def derive_mod_from_key(key_type: str, path: str):
     if key_type == "private":
-        return len(eval(load_from_file(path)))
+        return len(eval(read_from_file(path)))
     else:
         public_key = eval(load_from_file(path))
         public_key_first_item_list = public_key[0]
