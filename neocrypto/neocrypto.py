@@ -55,4 +55,36 @@ class NeoCrypto:
 
 
 
+#--------------------------------------------------------------------------
+    def save_public_key(self, file_path: str) -> None:
+        '''
+        save public key in a text file
+        '''
+        save_to_file(self.pk, file_path)
+        print('public key saved')
+
+
+    def read_public_key(self, file_path: str) -> None:
+        '''
+        read public key from a text file
+        '''
+        content = read_from_file(file_path)
+        key = self.public_key.validate_stringified_key(str(content))
+        self.public_key.key = key
+        self.public_key.key_string = str(key)
+        self.pk = key
+        print('read public key from file successfully')
+
+        
+    def read_public_key_from_string(self, input: str)-> None:
+        '''
+        read public key from user input string
+        '''
+        key = self.public_key.validate_stringified_key(str(input))
+        self.public_key.key = key
+        self.public_key.key_string = str(key)
+        self.pk = key
+        print('read public key from input string successfully')
+
+        
 
