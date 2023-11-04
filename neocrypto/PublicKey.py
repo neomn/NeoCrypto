@@ -41,7 +41,14 @@ class PublicKey():
         return structured_key
     
     
-           
+    def validate_stringified_key(self, string: str) -> list:
+        key = eval(string) 
+        assert isinstance(key, list)
+        for coefficient, equation in key:
+            assert isinstance(coefficient, list)
+            assert isinstance(equation, int)
+        return key
+            
 
 
 
