@@ -18,7 +18,7 @@ class PrivateKey:
         return key
     
 
-    def read_key_from_string(self, string: str):
+    def read_from_string(self, string: str):
         key = eval(string)
         assert isinstance(key, list)
         for num in key:
@@ -27,11 +27,11 @@ class PrivateKey:
         return key
 
     
-    def read_key_from_file(self, file_path: str):
+    def read_from_file(self, file_path: str):
         assert isfile(file_path)
         with open(file_path, 'r') as file:
             content = file.read()
-        return self.read_key_from_string(content)
+        return self.read_from_string(content)
          
     
     def save_to_file(self, file_path: str):
