@@ -12,7 +12,17 @@ def read_from_file(file_path):
         print(f'read from file failed, {e}')
 
 
-
+def save_to_file(content , file_path: str):
+    try:
+        with open(file_path, 'w') as file:
+            file.write(str(content))
+    except IOError as e:
+        if e.errno == errno.EACCES:
+            print('Permission denied') 
+        elif e.errno == errno.ENOSPC:
+            print('No space left on device')
+    except Exception as e:
+        print('Unknown exception:', e)
 
 
 def generate_error(max_error_size: int):
