@@ -7,7 +7,7 @@ class EncapsulationEquation:
         self.component_standard_equations = []
         self.encapsulation_equation = StandardEquation([], 0)
         self.component_limit = encapsulation_component_limit(public_key.mod_value)
-        for component in range(self.component_limit):
+        for _ in range(self.component_limit):
             self.component_standard_equations.append(select_random_equation(public_key))
         for equation in self.component_standard_equations:
             self.encapsulation_equation.add_equation(equation)
