@@ -18,5 +18,9 @@ class PrivateKey:
         return key
     
 
-   
-
+    def validate_stringified_key(self, string: str) -> list:
+        key = eval(string)
+        assert isinstance(key, list)
+        for num in key:
+            assert isinstance(num, int)
+        return key
