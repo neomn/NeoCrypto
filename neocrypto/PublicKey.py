@@ -8,6 +8,7 @@ class PublicKey():
     def __init__(self, private_key: PrivateKey, mod_value: int):
         self.mod_value = mod_value
         self.private_key = private_key
+        self.key_string = ''
         
 
     def generate(self):
@@ -26,18 +27,6 @@ class PublicKey():
             standard_equations_structured.append(new_standard_equation)
             standard_equations_stringified.append(new_standard_equation.stringify())
         self.key = standard_equations_structured
-        return standard_equations_stringified
+        self.key_string = standard_equations_stringified
+        return self.key_string
 
-    
-    def read_from_string(self, string: str):
-        return ''
-
-        
-    def read_from_file(self, file_path: str):
-        return ''
-
-        
-    def save_to_file(self, file_path: str):
-        return ''
-
-    
