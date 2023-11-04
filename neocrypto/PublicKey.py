@@ -30,3 +30,19 @@ class PublicKey():
         self.key_string = standard_equations_stringified
         return self.key_string
 
+    
+    def string_to_structured(self, string: str):
+        _list = self.validate_stringified_key(string)
+        structured_key = []
+        for _, equation in enumerate(_list):
+                coefficient_list = list(equation[0])
+                constant = equation[1]
+                structured_key.append(StandardEquation(coefficient_list, constant))
+        return structured_key
+    
+    
+           
+
+
+
+
