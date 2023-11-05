@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: NeoCrypto
+Version: alpha-0.0.1
+Summary: post quantum asymetric cryptography package
+Home-page: https://github.com/neomn/NeoCrypto
+Author: Neo
+Author-email: neomn110@gmail.com
+License: GLP-3.0
+Classifier: License :: OSI Approved :: GLP License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+###Under Development, No Release Yet :(
