@@ -1,4 +1,4 @@
-from .Helpers          import  max_error, generate_error, return_random_int
+from .Helpers          import  max_error, generate_error, return_random_int, get_public_key_mod_value
 from .StandardEquation import StandardEquation
 from .PrivateKey       import PrivateKey
 
@@ -41,13 +41,14 @@ class PublicKey():
         return structured_key
     
     
-    def validate_stringified_key(self, string: str) -> list:
+    def validate_stringified_key(self, string: str) -> tuple:
         key = eval(string) 
+        mod_value = get_public_key_mod_value(key)
         assert isinstance(key, list)
         for coefficient, equation in key:
             assert isinstance(coefficient, list)
             assert isinstance(equation, int)
-        return key
+        return key, mod_value
             
 
 

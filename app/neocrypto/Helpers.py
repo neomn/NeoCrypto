@@ -94,6 +94,23 @@ def preflight_checks_create_key(proposed_path: str):
 #         public_key_first_item_list = public_key[0]
 #         return len(public_key_first_item_list[0])
 
+def get_private_key_mod_value(private_key: list)-> int:
+    key_len = len(private_key)
+    if is_prime(key_len):
+        return key_len
+    else:
+        raise ValueError('wrong prime number!, invalid private key')
+
+
+
+def get_public_key_mod_value(public_key: list[list])-> int:
+    key_len = len(public_key[0])
+    if is_prime(key_len):
+        return key_len
+    else:
+        raise ValueError('wrong prime number!, invalid public key')
+
+
 
 def preflight_checks_load_key(proposed_path: str, key_type: str):
     if key_type == "public":
