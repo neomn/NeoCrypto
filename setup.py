@@ -14,9 +14,9 @@ setup(
     url="https://github.com/neomn/NeoCrypto",
     author="Neo",
     author_email="neomn110@gmail.com",
-    license="GLP-3.0",
+    license="GNU General Public License v3 (GPLv3)",
     classifiers=[
-        "License :: OSI Approved :: GLP License",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3.10",
         "Operating System :: OS Independent",
     ],
