@@ -5,7 +5,7 @@ with open("app/README.md", "r") as f:
 
 setup(
     name="NeoCrypto",
-    version="alpha-0.0.1",
+    version="0.0.1-alpha",
     description="post quantum asymetric cryptography package",
     package_dir={"": "app"},
     packages=find_packages(where="app"),
