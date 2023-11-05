@@ -1,4 +1,4 @@
-# Post-Quantum Asymetric cryptography for python
+# Post-Quantum Asymetric Cryptography For Python
 ## quick start:
 
 ```Python
