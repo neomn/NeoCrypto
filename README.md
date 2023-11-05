@@ -1,6 +1,12 @@
 # Post-Quantum Asymetric Cryptography For Python
 ## quick start:
 
+
+```
+# install the package using pip
+pip install neocrypto
+```
+
 ```Python
 from neocrypto.NeoCrypto import NeoCrypto
 
