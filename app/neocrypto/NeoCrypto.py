@@ -18,11 +18,11 @@ class NeoCrypto:
     
         
 #--------------------------------------------------------------------------
-    def encrypt(self, message: str):
+    def encrypt(self, message: str)-> str:
         return encrypt(message=message, public_key=self.public_key)
 
         
-    def decrypt(self, encrypted_message: list):
+    def decrypt(self, encrypted_message: str)-> str:
         return decrypt(encrypted_message, self.private_key)
 
     
