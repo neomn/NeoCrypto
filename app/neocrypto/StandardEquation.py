@@ -8,7 +8,7 @@ class StandardEquation:
         self.constant = constant
 
     def add_equation(self, standard_equation):
-        # assert isinstance(standard_equation, StandardEquation)
+        assert isinstance(standard_equation, StandardEquation)
         for index, coefficient in enumerate(standard_equation.coefficients):
             if len(self.coefficients) < len(standard_equation.coefficients):
                 self.coefficients.append(coefficient)

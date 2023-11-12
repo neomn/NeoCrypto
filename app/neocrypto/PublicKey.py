@@ -31,10 +31,9 @@ class PublicKey():
         return self.key_string
 
     
-    def string_to_structured(self, string: str):
-        _list = self.validate_stringified_key(string)
+    def convert_list_key_to_structured_key(self, key: list):
         structured_key = []
-        for _, equation in enumerate(_list):
+        for _, equation in enumerate(key):
                 coefficient_list = list(equation[0])
                 constant = equation[1]
                 structured_key.append(StandardEquation(coefficient_list, constant))
@@ -47,8 +46,11 @@ class PublicKey():
         assert isinstance(key, list)
         for coefficient, equation in key:
             assert isinstance(coefficient, list)
+            for num in coefficient:
+                assert isinstance(num, int)
             assert isinstance(equation, int)
-        return key, mod_value
+        structured_key = self.convert_list_key_to_structured_key(key)
+        return structured_key, mod_value
             
 
 

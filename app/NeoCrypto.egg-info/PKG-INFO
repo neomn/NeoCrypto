@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: NeoCrypto
-Version: 0.0.1a0
+Version: 0.0.2a0
 Summary: post quantum asymetric cryptography package
 Home-page: https://github.com/neomn/NeoCrypto
 Author: Neo
@@ -14,4 +14,4 @@ Description-Content-Type: text/markdown
 Provides-Extra: dev
 License-File: LICENSE
 
-###Under Development, No Release Yet :(
+## check out [NeoCrypto github repository](https://github.com/neomn/NeoCrypto) to see how to use it 
