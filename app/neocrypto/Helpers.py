@@ -104,7 +104,8 @@ def get_private_key_mod_value(private_key: list)-> int:
 
 
 def get_public_key_mod_value(public_key: list[list])-> int:
-    key_len = len(public_key[0])
+    key_len = len(public_key[0][0])
+    print(f"len key[0] is {key_len}")
     if is_prime(key_len):
         return key_len
     else:
